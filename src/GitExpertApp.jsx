@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AddCategory } from "./components/AddCategory";
 
 
 export const GitExpertApp = () => {
@@ -7,20 +8,18 @@ export const GitExpertApp = () => {
 
     const onAddCategory = () => {
         //Notas categories.push( "light" ); En React no se debe utilizar
-        setCategories([ ...categories, 'Light' ]);
+        setCategories([ 'Light', ...categories ]);
         //NotaOtraformaDeHacerlo   setCategories(cat => [...cat,'Light']);
-        //Borrar pruebas 
-        console.log('nueva categoria');
-        //Borrar pruebas 
+
 
     }
 
-    return (    
+    return (
         <>
             {/*Notas título */ }
             <h1>GitExpertApp</h1>
             {/*Input */ }
-
+            <AddCategory />
             {/*Listado de Gif */ }
             <button onClick={ onAddCategory }>Agregar</button>
             <ol>
