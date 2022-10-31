@@ -8,6 +8,10 @@ export const GitExpertApp = () => {
     const [ categories, setCategories ] = useState([ 'Love', 'war', ]);
     //Notas 
     const onAddCategory = (newCategory) => {
+
+        //Notas En el caso de que haya una categoria igual la ignoramos
+        if(categories.includes(newCategory)) return;
+        //Notas Si no insertamos la categoria junto a las demás
         setCategories([ newCategory, ...categories ]);
         //NotaOtraformaDeHacerlo   
         //setCategories(cat => [newCategory, ...cat]);
