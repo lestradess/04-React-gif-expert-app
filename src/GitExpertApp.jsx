@@ -3,13 +3,14 @@ import { AddCategory } from "./components/AddCategory";
 
 
 export const GitExpertApp = () => {
-
+    //Notas De esta forma definimos un arreglo en el que se pueden 
+    /////// insertar elementos gracias a su set.
     const [ categories, setCategories ] = useState([ 'Love', 'war', ]);
-
-    const onAddCategory = () => {
-        //Notas categories.push( "light" ); En React no se debe utilizar
-        setCategories([ 'Light', ...categories ]);
-        //NotaOtraformaDeHacerlo   setCategories(cat => [...cat,'Light']);
+    //Notas 
+    const onAddCategory = (newCategory) => {
+        setCategories([ newCategory, ...categories ]);
+        //NotaOtraformaDeHacerlo   
+        //setCategories(cat => [newCategory, ...cat]);
 
 
     }
@@ -19,9 +20,10 @@ export const GitExpertApp = () => {
             {/*Notas título */ }
             <h1>GitExpertApp</h1>
             {/*Input */ }
-            <AddCategory />
-            {/*Listado de Gif */ }
-            <button onClick={ onAddCategory }>Agregar</button>
+            <AddCategory
+                onNewCategory={ event => onAddCategory(event) }
+            />
+
             <ol>
                 { categories.map(category => {
                     return <li key={ category }>{ category }</li>;
