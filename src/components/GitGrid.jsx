@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { getGifts } from "../helpers/getGifs";
 
 
@@ -5,13 +6,30 @@ import { getGifts } from "../helpers/getGifs";
 
 export const GitGrid = ({ category }) => {
 
+    const [ images, setImages ] = useState([])
 
-    getGifts(category);
-    
+    const getImages = async () => {
+        const newImages = await getGifts(category);
+        setImages(newImages);
+    }
+
+    useEffect(() => {
+        getImages();
+    }, []);
+
+
     return (
         <>
             <h3>{ category }</h3>
-            <p>Hola mundo</p>
+            <ol>
+                {
+                    images.map(({id,title})=> (
+                        <li key={id}>{ title }</li>
+                    ))
+                }
+                
+            </ol>
+
         </>
     )
 }
