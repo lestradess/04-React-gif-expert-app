@@ -7,9 +7,6 @@ export const getGifts = async (category) => {
         title: img.title,
         url: img.images.downsized_medium.url,
     }));
-    //Borrar pruebas
-    //console.log(gifs);
-    //Borrar pruebas
     
     return gifs;
 }

@@ -1,35 +1,38 @@
-import { useEffect, useState } from "react";
-import { getGifts } from "../helpers/getGifs";
-
+import { GifItem } from "./GifItem";
+import {useFetchGifs} from "../hooks/useFetchGifs";
 
 
 
 export const GitGrid = ({ category }) => {
 
-    const [ images, setImages ] = useState([])
+    const {images, isLoading}= useFetchGifs (category);
 
-    const getImages = async () => {
-        const newImages = await getGifts(category);
-        setImages(newImages);
-    }
+    // const [ images, setImages ] = useState([])
 
-    useEffect(() => {
-        getImages();
-    }, []);
+    // const getImages = async () => {
+    //     const newImages = await getGifts(category);
+    //     setImages(newImages);
+    // }
+
+    // useEffect(() => {
+    //     getImages();
+    // }, []);
 
 
     return (
         <>
             <h3>{ category }</h3>
-            <ol>
+            <div className="card-grid">
                 {
-                    images.map(({id,title})=> (
-                        <li key={id}>{ title }</li>
+                    images.map((image) => (
+                        <GifItem
+                            key= {image.id}
+                        //Notas De esta forma compartimos todas las propiedades
+                            { ...image }
+                        />
                     ))
                 }
-                
-            </ol>
-
+            </div>
         </>
     )
 }

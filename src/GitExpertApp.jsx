@@ -6,7 +6,7 @@ import { GitGrid } from "./components/GitGrid";
 export const GitExpertApp = () => {
     //Notas De esta forma definimos un arreglo en el que se pueden 
     /////// insertar elementos gracias a su set.
-    const [ categories, setCategories ] = useState([ 'Love' ]);
+    const [ categories, setCategories ] = useState([ 'space' ]);
     //Notas 
     const onAddCategory = (newCategory) => {
 
