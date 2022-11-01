@@ -22,6 +22,10 @@ export const GitGrid = ({ category }) => {
     return (
         <>
             <h3>{ category }</h3>
+            {
+                //Notas and lógico lo segundo se realiza si isLoading es true
+                isLoading && (<h2>Cargando</h2>)
+            }
             <div className="card-grid">
                 {
                     images.map((image) => (

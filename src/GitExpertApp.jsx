@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { AddCategory } from "./components/AddCategory";
 import { GitGrid } from "./components/GitGrid";
 
@@ -6,7 +6,7 @@ import { GitGrid } from "./components/GitGrid";
 export const GitExpertApp = () => {
     //Notas De esta forma definimos un arreglo en el que se pueden 
     /////// insertar elementos gracias a su set.
-    const [ categories, setCategories ] = useState([ 'space' ]);
+    const [ categories, setCategories ] = useState([]);
     //Notas 
     const onAddCategory = (newCategory) => {
 
